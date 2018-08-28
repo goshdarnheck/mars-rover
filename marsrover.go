@@ -117,8 +117,8 @@ func (rover *Rover) move() {
 	}
 }
 
-func (rover *Rover) rotate(c string) {
-	if c == "R" {
+func (rover *Rover) rotate(command string) {
+	if command == "R" {
 		switch rover.dir {
 		case "N":
 			rover.dir = "E"
@@ -129,7 +129,7 @@ func (rover *Rover) rotate(c string) {
 		case "W":
 			rover.dir = "N"
 		}
-	} else if c == "L" {
+	} else if command == "L" {
 		switch rover.dir {
 		case "N":
 			rover.dir = "W"
