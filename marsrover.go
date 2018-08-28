@@ -5,11 +5,9 @@ import (
 	"strconv"
 )
 
-// TODO: write tests and refactor
-// TODO: separate input gathering from structs and test
+// TODO: add interface for Rover to implement
 // TODO: handle invalid input
-// TODO: make case-insensitive?
-// TODO: seperate plateau and rover into Golang packages?
+// TODO: make case-insensitive
 // TODO: accept command line args for number of rovers
 // TODO: print out an ascii grid of where the rovers end up
 // TODO: store the path of the rovers and display that on the grid
@@ -87,7 +85,7 @@ func (rover *Rover) getRoverLanding() {
 	fmt.Scan(&x, &y, &dir)
 
 	if _, ok := moves[dir]; ok {
-		// fmt.Println("nice moves keep it up proud of you")
+		// TODO: validate input
 	}
 
 	rover.x = x
