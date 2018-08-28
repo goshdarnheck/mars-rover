@@ -5,20 +5,17 @@ import (
 	"strconv"
 )
 
-// TODO: put on github/bitbucket
-// TODO: handle invalid input
-// TODO: make case-insensitive
 // TODO: write tests and refactor
-
+// TODO: separate input gathering from structs and test
+// TODO: handle invalid input
+// TODO: make case-insensitive?
 // TODO: seperate plateau and rover into Golang packages?
-// TODO: right some todos of some things that I think should be done
+// TODO: accept command line args for number of rovers
+// TODO: print out an ascii grid of where the rovers end up
+// TODO: store the path of the rovers and display that on the grid
 
 type Plateau struct {
 	width, height int
-}
-
-type Vector2 struct {
-	x, y int
 }
 
 type Rover struct {
@@ -27,6 +24,10 @@ type Rover struct {
 	name string
 	instructions string
 	plateau *Plateau
+}
+
+type Vector2 struct {
+	x, y int
 }
 
 var (
@@ -58,14 +59,18 @@ func main() {
 		rovers[i].name = strconv.Itoa(i + 1);
 		rovers[i].getRoverLanding()
 		rovers[i].getInstructions()
-		rovers[i].activate()
+		rovers[i].activate() 
+	}
+
+	for i := 0; i < len(rovers); i++ {
+		rovers[i].print()
 	}
 }
 
 func (plateau *Plateau) getSize() {
 	var w, h int
 
-	fmt.Println("Plateau: ")
+	fmt.Print("Plateau: ")
 	fmt.Scan(&w, &h)
 	  
 	plateau.width = w;
@@ -150,8 +155,6 @@ func (rover *Rover) activate() {
 			rover.rotate(instruction)
 		}
 	}
-
-	rover.print()
 }
 
 func (rover *Rover) print() {
