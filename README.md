@@ -8,3 +8,7 @@ Solution to https://github.com/abdulg/Mars-Rover built in Go.
 - Clone this repo into your GOPATH folder: git clone https://matthew_rapati@bitbucket.org/matthew_rapati/mars-rover.git
 - $ go build
 - $ marsrover
+
+# Tests
+
+- $ go test
